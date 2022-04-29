@@ -8,12 +8,12 @@ import java.util.regex.Pattern;
 
 public class ScraperUtils {
 
-  public static final Pattern testCasePattern = Pattern.compile("EPMCHRTMIS-(\\d*)");
+  public static final Pattern TEST_CASE_PATTERN = Pattern.compile("EPMCHRTMIS-(\\d*)");
 
   public static Set<Integer> findTestCasesIds(List<String> files) {
     Set<Integer> idList = new HashSet<>();
     files.forEach(file -> {
-      Matcher m = testCasePattern.matcher(file);
+      Matcher m = TEST_CASE_PATTERN.matcher(file);
       while (m.find()) {
         idList.add(Integer.parseInt(m.group(1)));
       }
